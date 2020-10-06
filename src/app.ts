@@ -1,13 +1,11 @@
 import express from "express";
+import GreetingController from "./greetings/greeting.controller";
 
 class App {
   public app: express.Application;
   constructor() {
     this.app = express();
-
-    this.app.get("/", function (req, res) {
-      res.send("Hello world from Typescript via Node.js and Express.js!!");
-    });
+    new GreetingController(this.app);
   }
 }
 
