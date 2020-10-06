@@ -1,11 +1,14 @@
-import express = require("express");
+import express from "express";
 
-const app: express.Application = express();
+class App {
+  public app: express.Application;
+  constructor() {
+    this.app = express();
 
-app.get("/", function (req, res) {
-  res.send("Hello world from Typescript via Node.js and Express.js!!");
-});
+    this.app.get("/", function (req, res) {
+      res.send("Hello world from Typescript via Node.js and Express.js!!");
+    });
+  }
+}
 
-app.listen(3000, function () {
-  console.log("App running on port 3000!");
-});
+export default new App().app;
